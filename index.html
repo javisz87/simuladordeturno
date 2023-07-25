@@ -2,19 +2,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Médica</title>
   <link rel="stylesheet" href="./style.css">
-  <title>Simulador de Turnos</title>
-  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Simulador de Turnos</h1>
-    <button id="sacarTurnoBtn">Sacar Turno</button>
-    <div id="resultado"></div>
-  </div>
-  <h1>El proceso lo veras en la consola y al cancelar el turno</h1>
-   <script src="main.js"></script>
+  <header>
+    <h1>Clínica Médica</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Turnos</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Turnos</h2>
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre">
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido:</label>
+          <input type="text" id="apellido">
+        </div>
+        <div class="form-group">
+          <label for="medico">Médico:</label>
+          <select id="medico">
+            <option value="1">Dr. Juan Pérez</option>
+            <option value="2">Dra. Ana Gómez</option>
+            <option value="3">Dr. Luis García</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fecha">Fecha:</label>
+          <input type="date" id="fecha">
+        </div>
+        <button id="sacarTurnoBtn">Sacar Turno</button>
+      </form>
+      <div id="resultado"></div>
+    </section>
+  </main>
+  <footer>
+    <p>Clínica Médica - Todos los derechos reservados</p>
+  </footer>
+  <script src="main.js"></script>
 </body>
 </html>

@@ -1,27 +1,19 @@
 const turnos = [];
- function sacarTurno() {
-  let deseaSacarTurno = true;
-  while (deseaSacarTurno) {
+ function sacarTurno(event) {
+  event.preventDefault(); // Evita que se recargue la página al enviar el formulario
+   const nombre = document.getElementById("nombre").value;
+  const apellido = document.getElementById("apellido").value;
+  const medicoSelect = document.getElementById("medico");
+  const medico = medicoSelect.options[medicoSelect.selectedIndex].text;
+  const fecha = document.getElementById("fecha").value;
+   if (nombre && apellido && medico && fecha) {
     const numeroTurno = turnos.length + 1;
-    turnos.push(numeroTurno);
-    const resultado = document.getElementById("resultado");
-    resultado.innerHTML = "Tu turno es el número " + numeroTurno + ".<br>Tienes " + (numeroTurno - 1) + " personas adelante.";
-    console.log("Tu turno es el número " + numeroTurno + ".\nTienes " + (numeroTurno - 1) + " personas adelante.");
-    deseaSacarTurno = confirm("¿Deseas sacar otro turno?");
-  }
-   if (turnos.length === 0) {
-    const resultado = document.getElementById("resultado");
-    resultado.innerHTML = "No se sacaron turnos.";
-    console.log("No se sacaron turnos.");
-  } else if (turnos.length === 1) {
-    console.log("Se sacó 1 turno.");
+    turnos.push({ nombre, apellido, medico, fecha });
+     const resultado = document.getElementById("resultado");
+    resultado.innerHTML = `Turno ${numeroTurno}: ${nombre} ${apellido} - ${medico} - ${fecha}`;
   } else {
-    console.log("Se sacaron " + turnos.length + " turnos.");
+    alert("Por favor, completa todos los campos.");
   }
 }
  const sacarTurnoBtn = document.getElementById("sacarTurnoBtn");
 sacarTurnoBtn.addEventListener("click", sacarTurno);
- window.addEventListener("resize", function() {
-  const resultado = document.getElementById("resultado");
-  resultado.innerHTML = "";
-});
